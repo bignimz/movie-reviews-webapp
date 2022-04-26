@@ -1,38 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    {% if title %}
-    <title>{{title}}</title>
-    {% else %}
-    <title>Welcome to The Best Movie Review Website</title>
-    {% endif %}
-  </head>
-  <body>
-    <!-- Popular Movies Section -->
-    <h3>Popular Movies</h3>
-    <ul>
-      {% for popular_movie in popular %}
-      <li>{{ popular_movie.title }}</li>
-      {% endfor %}
-    </ul>
+<!-- Template Inheritance from base html -->
+{% extends 'base.html' %}
+<!-- Import Macro -->
+{% import 'macros.html' as macro %}
 
-    <!-- Upcoming Movies -->
-    <h3>Upcoming Movies</h3>
-    <ul>
-      {% for upcoming_movie in upcoming %}
-      <li>{{ upcoming_movie.title }}</li>
-      {% endfor %}
-    </ul>
+<!-- Content block -->
+{% block content %}
 
-    <!-- Now Showing Movies -->
-    <h3>Now Showing</h3>
-    <ul>
-      {% for now_showing_movie in now_showing %}
-      <li>{{ now_playing.title }}</li>
-      {% endfor %}
-    </ul>
-  </body>
-</html>
+<!-- Popular Movies Section -->
+<h3>Popular Movies</h3>
+<ul>
+  {{ macro.displayMovieList(popular)}}
+</ul>
+
+<!-- Upcoming Movies -->
+<h3>Upcoming Movies</h3>
+<ul>
+  {{ macro.displayMovieList(upcoming)}}
+</ul>
+
+{% endblock %}
