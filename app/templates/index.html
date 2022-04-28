@@ -25,13 +25,16 @@
     <div class="row height d-flex justify-content-center align-items-center">
       <div class="col-md-12">
         <div class="search">
-          <i class="fa fa-search"></i>
-          <input
-            type="text"
-            class="form-control tmb-control"
-            placeholder="Search for a movie, tv show or person..."
-          />
-          <button class="btn btn-primary">Search</button>
+          <form>
+            <i class="fa fa-search"></i>
+            <input
+              type="text"
+              name="movie_query"
+              class="form-control tmb-control"
+              placeholder="Search for a movie, tv show or person..."
+            />
+            <button class="btn btn-primary" type="submit">Search</button>
+          </form>
         </div>
       </div>
     </div>
@@ -40,12 +43,18 @@
 
 <div class="movies-wrapper container">
   <!-- Popular Movies Section -->
-  <h3 class="fw-bold fs-2">Popular Movies</h3>
-  <div class="popular-block">{{ macro.displayMovieList(popular)}}</div>
+  <div class="popular-block">
+    <h3 class="fw-bold fs-2 tmb-movie-title">Popular Movies</h3>
+    <hr />
+    <div class="popular-movies">{{ macro.displayMovieList(popular)}}</div>
+  </div>
 
   <!-- Upcoming Movies -->
-  <!-- <h3>Upcoming Movies</h3>
-  <div class="mb-5 d-flex">{{ macro.displayMovieList(upcoming)}}</div> -->
+  <div class="popular-block">
+    <h3 class="tmb-movie-title">Upcoming Movies</h3>
+    <hr />
+    <div class="upcoming-movies">{{ macro.displayMovieList(upcoming)}}</div>
+  </div>
 
   <!-- Now Playing Movies -->
   <!-- <h3>Now Playing</h3>
